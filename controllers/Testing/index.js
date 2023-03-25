@@ -24,7 +24,7 @@ exports.testing = async (req, res, next) => {
   return response.res200(res, "000", "MANTAP", obj)
 }
 
-const cronCutOff = async (req, res, next) => {
+exports.cronCutOff = async (req, res, next) => {
   console.log("testing cron!!!")
   Boolean(res) && res.send(200);
 }
@@ -33,5 +33,3 @@ cron.schedule(process.env.CRON_TIMER_CUTOFF, () => {
     console.log(`Cron started at ${new Date()}`)
     cronCutOff();
 });
-
-module.exports = { cronCutOff }
